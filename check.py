@@ -2,16 +2,19 @@ import requests
 import json
 import sms
 import time
+import sys
 from pytz import timezone
 from datetime import datetime
 
-url = "https://www.apple.com/kr/shop/retail/pickup-message?pl=true&searchNearby=true&store=R692&parts.=MGNA3KH/A"
+device = sys.argv[1]
+
+url = "https://www.apple.com/kr/shop/retail/pickup-message?pl=true&searchNearby=true&store=R692&parts.=" + device
 
 response = requests.get(url).json()
 store = response['body']['stores'][0]
 reservationUrl = store['reservationUrl']
-availability = store['partsAvailability']['MGNA3KH/A']['storeSelectionEnabled']
-text = store['partsAvailability']['MGNA3KH/A']['storePickupQuote']
+availability = store['partsAvailability'][device]['storeSelectionEnabled']
+text = store['partsAvailability'][device]['storePickupQuote']
 
 if availability:
 	sms.sendSMS()

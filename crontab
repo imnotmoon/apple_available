@@ -1,1 +1,1 @@
-*/10 * * * * python3 ~/buy-mac/check.py
+*/10 * * * * python3 ~/buy-mac/check.py "MGNA3KH/A"
