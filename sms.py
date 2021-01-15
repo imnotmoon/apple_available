@@ -44,7 +44,7 @@ def sendSMS() :
 		"contentType": "COMM",
 		"from" : "01074145644",
 		"content": "맥북 픽업 물량 풀림!",
-		"messages" : [{"to" : "01074145644"}]
+		"messages" : [{"to" : api_key["phone"]}]
 	}
 
 	body = json.dumps(body)
