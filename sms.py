@@ -26,7 +26,7 @@ def sendSMS() :
 	url = "https://sens.apigw.ntruss.com"
 	uri = api_key["uri"]
 	api_url = url + uri
-	access_key = "Ajy5izUT3YteMFsq8B95"
+	access_key = api_key["access_key"]
 	string_to_sign = "POST " + uri + "\n" + timestamp + "\n" + access_key
 
 #make signature
@@ -42,7 +42,7 @@ def sendSMS() :
 	body = {
 		"type" : "SMS",
 		"contentType": "COMM",
-		"from" : "01074145644",
+		"from" : api_key["phone"],
 		"content": "맥북 픽업 물량 풀림!",
 		"messages" : [{"to" : api_key["phone"]}]
 	}
